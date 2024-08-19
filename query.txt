@@ -96,9 +96,9 @@ INNER JOIN public.clienti b
 ON a.numero_cliente = b.numero_cliente
 GROUP BY b.regione_residenza;
 
-SELECT DISTINCT b.numero_cliente, b.nome, b.anno_nascita
+SELECT COUNT(DISTINCT b.numero_cliente) as quanti_clienti_1980_imp50
 FROM public.fatture a
 INNER JOIN public.clienti b
 ON a.numero_cliente = b.numero_cliente
-WHERE b.anno_nascita = 1980
+WHERE b.anno_nascita =1980
 AND a.importo > 50;
